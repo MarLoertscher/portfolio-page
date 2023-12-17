@@ -96,10 +96,12 @@ function checkAnswer(answer) {
 }
 
 function endRound() {
+    document.getElementById("congratulations").innerHTML = "Congratulations! You got " + points + " points!"
     count = 0
     points = 0
     document.getElementById("questionbox").innerHTML = "Want to play again?"
     document.getElementById("counterbox").innerHTML = ""
+    document.getElementById("playButton").style.display = "block";
     toggleTrueFalse()
 }
 
@@ -110,26 +112,26 @@ function pressFalse() {
     checkAnswer('False')
 }
 
-// //create a function that hides the start button and shows the quiz   
-// function startQuiz() {
-//     document.getElementById("playButton").style.display = "none";
-//     document.getElementById("quiz").style.display = "block";
-//     play()
-// }
+//create a function that hides the start button and shows the quiz   
+function startQuiz() {
+    document.getElementById("playButton").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+    play()
+}
 
-// function toggleTrueFalseOff() {
-//     document.getElementById("trueButton").style.display = "none";
-//     document.getElementById("falseButton").style.display = "none";
-// }
-// function toggleTrueFalseOn() {
-//     document.getElementById("trueButton").style.display = "true";
-//     document.getElementById("falseButton").style.display = "true";
-// }
-// // combine the two functions into one
-// function toggleTrueFalse() {
-//     if (document.getElementById("trueButton").style.display === "none") {
-//         toggleTrueFalseOn()
-//     } else {
-//         toggleTrueFalseOff()
-//     }
-// }
+function toggleTrueFalseOff() {
+    document.getElementById("trueButton").style.display = "none";
+    document.getElementById("falseButton").style.display = "none";
+}
+function toggleTrueFalseOn() {
+    document.getElementById("trueButton").style.display = "block";
+    document.getElementById("falseButton").style.display = "block";
+}
+// combine the two functions into one
+function toggleTrueFalse() {
+    if (document.getElementById("trueButton").style.display === "none") {
+        toggleTrueFalseOn()
+    } else {
+        toggleTrueFalseOff()
+    }
+}
