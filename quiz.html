@@ -2,12 +2,13 @@
 <html>
 <head>
     <title>Quiz Time</title>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
 </head>
 <body>
     <div>
         <h1>Let's play a game</h1>
         <button id="playButton">Play</button>
+        <p id ="counterbox"></p>
         <script>
             document.getElementById("playButton").addEventListener("click", function(){
                 const url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=boolean";
