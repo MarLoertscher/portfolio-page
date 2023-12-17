@@ -8,15 +8,32 @@
     <div>
         <h1>Let's play a game</h1>
         <button id="playButton">Play</button>
-
-        <script >
-            //import {getQuizData} from "./js/scripts.js";
-
+        <script>
             document.getElementById("playButton").addEventListener("click", function(){
-                const url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple";
-                getQuizData(url);
+                const url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=boolean";
+                play();
             })
         </script>
+
+        <p id="questionbox"></p>
+
+        <button id="trueButton">True</button>
+        <script>
+            document.getElementById("trueButton").addEventListener("click", function(){
+                answertrue();
+            })
+        </script>
+
+        <button id="falseButton">False</button>
+        <script>
+            document.getElementById("falseButton").addEventListener("click", function(){
+                answerfalse();
+            })
+        </script>
+
+<div>
+    <main></main>
+</div>
 
     </div>
 </body>
