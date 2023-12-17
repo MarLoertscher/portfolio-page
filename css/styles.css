@@ -4,3 +4,25 @@
     color:blue;
     
 }
+
+
+.navbar {
+    background-color: #333; /* Background color */
+    padding: 10px; /* Padding around the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 10px; /* Add spacing between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color for links */
+}
