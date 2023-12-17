@@ -1,39 +1,3 @@
-// function getQuizData(apiURL){
-//     const main = document.querySelector('main');
-//     fetch(apiURL)
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok');
-//         }
-//         return response.json();
-//         })
-//     .then(json => {
-//         // Use the data from the API response
-//         for (let i = 0; i <=9; i++) {
-//             console.log(json['results'][i]['question']);
-//             document.getElementById("questionbox").innerHTML = json['results'][i]['question'];
-            
-//         }
-//         questions = json;
-//         console.log(typeof questions);
-//         console.log(Object.keys(json['results']))
-//         return json['results'] ;
-        
-        
-//     })
-//     .catch(error => {
-//         // Handle any errors
-//         console.error('There was a problem with the fetch operation:', error);
-//     });
-// }
-
-
-
-
-
-const url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=boolean";
-
-
 
 
 async function fetchData(apiURL) {
@@ -61,10 +25,14 @@ let questionCount = 0
 let points = 0
 async function play() {
     try {
+        const form = document.getElementById("quizForm");
+        const category = form.elements["category"].value;
+        const difficulty = form.elements["difficulty"].value;
+        const amount = form.elements["numberOfQuestions"].value;
+        const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=boolean`
         resultData = await fetchData(url);
         console.log(resultData['results']); // Use the resultData variable for further processing
         questionCount = resultData['results']['length']
-        startQuiz()
         setupScreen()
         toggleTrueFalse()
     } catch (error) {
@@ -74,7 +42,7 @@ async function play() {
 }
 
 function setupScreen(){
-    document.getElementById("questionbox").innerHTML = resultData['results'][count]['question'] + '\n' +'True of False?' ;
+    document.getElementById("questionbox").innerHTML = resultData['results'][count]['question'] + '\n' +'True or False?' ;
     document.getElementById("counterbox").innerHTML = 'Question ' + (count+1) + ' of ' + questionCount;
 }
 
@@ -101,7 +69,7 @@ function endRound() {
     points = 0
     document.getElementById("questionbox").innerHTML = "Want to play again?"
     document.getElementById("counterbox").innerHTML = ""
-    document.getElementById("playButton").style.display = "block";
+    document.getElementById("retryButton").style.display = "block"
     toggleTrueFalse()
 }
 
@@ -115,7 +83,8 @@ function pressFalse() {
 //create a function that hides the start button and shows the quiz   
 function startQuiz() {
     document.getElementById("playButton").style.display = "none";
-    document.getElementById("quiz").style.display = "block";
+    document.getElementById("quiz").style.display = "block"
+    console.log("startQuiz")
     play()
 }
 
@@ -134,4 +103,8 @@ function toggleTrueFalse() {
     } else {
         toggleTrueFalseOff()
     }
+}
+
+function reloadPage() {
+    location.reload();
 }
