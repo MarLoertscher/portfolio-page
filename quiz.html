@@ -4,38 +4,114 @@
     <title>Quiz Time</title>
     <script type="text/javascript" src="js/quiz.js"></script>
 </head>
+
+<header id="navbarContainer"></header>
+
 <body>
     <div>
-        <h1>Let's play a game</h1>
-        <button id="playButton">Play</button>
-        <p id ="counterbox"></p>
+        <h1>Let's play a game</h1> 
+
+        <form id="quizForm">
+            <label for="numberOfQuestions">Number of Questions:</label>
+            <select id="numberOfQuestions" name="numberOfQuestions" required>
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="15">20</option>
+                <option value="15">25</option>
+            </select><br><br>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+              <option value="9" selected>General Knowledge</option>
+              <option value="10">Entertainment: Books</option>
+              <option value="11">Entertainment: Film</option>
+              <option value="12">Entertainment: Music</option>
+              <option value="13">Entertainment: Musicals & Theatres</option>
+              <option value="14">Entertainment: Television</option>
+              <option value="15">Entertainment: Video Games</option>
+              <option value="16">Entertainment: Board Games</option>
+              <option value="17">Science & Nature</option>
+              <option value="18">Science: Computers</option>
+              <option value="19">Science: Mathematics</option>
+              <option value="20">Mythology</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="23">History</option>
+              <option value="24">Politics</option>
+              <option value="25">Art</option>
+              <option value="26">Celebrities</option>
+              <option value="27">Animals</option>
+              <option value="28">Vehicles</option>
+              <option value="29">Entertainment: Comics</option>
+              <option value="30">Science: Gadgets</option>
+              <option value="31">Entertainment: Japanese Anime & Manga</option>
+              <option value="32">Entertainment: Cartoon & Animations</option>
+            </select><br><br>
+
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" name="difficulty" required>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select><br><br>
+
+            <button id="submit" type="submit">Start Quiz</button>
+        </form>
+        <script>
+            document.getElementById("quizForm").addEventListener("submit", function() {
+                document.getElementById("quizForm").style.display = "none"
+            });
+        </script>
+
+
+        
+        
+        <h2 id="congratulations"></h2>
+        <div id="quiz">
+            <p id ="counterbox"></p>
+            <p id="questionbox"></p>
+
+            <button id="trueButton" style="display: none">True</button>
+            <button id="falseButton" style="display: none">False</button>
+            <script>
+                document.getElementById("trueButton").addEventListener("click", function(){
+                    pressTrue();
+                })
+            </script>
+            <script>
+                document.getElementById("falseButton").addEventListener("click", function(){
+                    pressFalse();
+                })
+            </script>
+        </div>
+
+        <button id="playButton">Play</button>          
         <script>
             document.getElementById("playButton").addEventListener("click", function(){
-                const url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=boolean";
-                play();
+                startQuiz();
+                document.getElementById("quizForm").style.display = "none"
             })
         </script>
 
-        <p id="questionbox"></p>
-
-        <button id="trueButton">True</button>
+        <button id="retryButton" style="display:none">Play Again</button>          
         <script>
-            document.getElementById("trueButton").addEventListener("click", function(){
-                answertrue();
+            document.getElementById("retryButton").addEventListener("click", function(){
+                reloadPage();
             })
         </script>
-
-        <button id="falseButton">False</button>
-        <script>
-            document.getElementById("falseButton").addEventListener("click", function(){
-                answerfalse();
-            })
-        </script>
-
-<div>
-    <main></main>
-</div>
 
     </div>
 </body>
+
+<script>
+    // Use JavaScript to include the navbar content
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbarContainer').innerHTML = data;
+        });
+</script>
+
+
 </html>
