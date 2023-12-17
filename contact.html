@@ -3,8 +3,24 @@
 <head>
     <title>Contact</title>
 </head>
+
+<header id = "navbarContainer"></header>
+
+
+
 <body>
     <h1>Contact Us</h1>
     <p>marcel.loertscher@students.bfh.ch</p>
 </body>
+
+<script>
+    // Use JavaScript to include the navbar content
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbarContainer').innerHTML = data;
+        });
+</script>
+
+
 </html>

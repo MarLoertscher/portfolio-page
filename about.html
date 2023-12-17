@@ -3,6 +3,12 @@
 <head>
     <title>About Me</title>
 </head>
+
+</head>
+
+<header id = "navbarContainer"></header>
+
+
 <body>
     <div>
         <ul>
@@ -14,4 +20,15 @@
         </ul>
     </div>
 </body>
+
+<script>
+    // Use JavaScript to include the navbar content
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbarContainer').innerHTML = data;
+        });
+</script>
+
+
 </html>
