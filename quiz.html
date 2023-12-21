@@ -3,6 +3,8 @@
 <head>
     <title>Quiz Time</title>
     <script type="text/javascript" src="js/quiz.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <header id="navbarContainer"></header>
@@ -12,8 +14,8 @@
         <h1>Let's play a game</h1> 
 
         <form id="quizForm">
-            <label for="numberOfQuestions">Number of Questions:</label>
-            <select id="numberOfQuestions" name="numberOfQuestions" required>
+            <label class="label-style" for="numberOfQuestions">Number of Questions:</label>
+            <select class="dropdown" id="numberOfQuestions" name="numberOfQuestions" required>
                 <option value="5" selected>5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
@@ -21,8 +23,8 @@
                 <option value="15">25</option>
             </select><br><br>
 
-            <label for="category">Category:</label>
-            <select id="category" name="category" required>
+            <label class="label-style" for="category">Category:</label>
+            <select class="dropdown" id="category" name="category" required>
               <option value="9" selected>General Knowledge</option>
               <option value="10">Entertainment: Books</option>
               <option value="11">Entertainment: Film</option>
@@ -49,14 +51,14 @@
               <option value="32">Entertainment: Cartoon & Animations</option>
             </select><br><br>
 
-            <label for="difficulty">Difficulty:</label>
-            <select id="difficulty" name="difficulty" required>
+            <label class="label-style" for="difficulty">Difficulty:</label>
+            <select class="dropdown" id="difficulty" name="difficulty" required>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select><br><br>
 
-            <button id="submit" type="submit">Start Quiz</button>
+            <button class="button-40" id="submit" type="submit">Start Quiz</button>
         </form>
         <script>
             document.getElementById("quizForm").addEventListener("submit", function() {
@@ -72,8 +74,8 @@
             <p id ="counterbox"></p>
             <p id="questionbox"></p>
 
-            <button id="trueButton" style="display: none">True</button>
-            <button id="falseButton" style="display: none">False</button>
+            <button class="button-40" id="trueButton" style="display: none">True</button>
+            <button class="button-40" id="falseButton" style="display: none">False</button>
             <script>
                 document.getElementById("trueButton").addEventListener("click", function(){
                     pressTrue();
@@ -86,7 +88,7 @@
             </script>
         </div>
 
-        <button id="playButton">Play</button>          
+        <button class="button-40" id="playButton">Play</button>          
         <script>
             document.getElementById("playButton").addEventListener("click", function(){
                 startQuiz();
@@ -94,7 +96,7 @@
             })
         </script>
 
-        <button id="retryButton" style="display:none">Play Again</button>          
+        <button class="button-40" id="retryButton" style="display:none">Play Again</button>          
         <script>
             document.getElementById("retryButton").addEventListener("click", function(){
                 reloadPage();
