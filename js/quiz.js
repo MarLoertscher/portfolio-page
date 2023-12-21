@@ -31,7 +31,6 @@ async function play() {
         const amount = form.elements["numberOfQuestions"].value;
         const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=boolean`
         resultData = await fetchData(url);
-        console.log(resultData['results']); // Use the resultData variable for further processing
         questionCount = resultData['results']['length']
         setupScreen()
         toggleTrueFalse()
@@ -48,14 +47,10 @@ function setupScreen(){
 
 function checkAnswer(answer) {
     if (answer == resultData['results'][count]['correct_answer']) {
-        // alert('Correct!')
         points += 1
-    } else {
-        // alert('Wrong!')
-    }
+    } 
     count += 1
     if (count == questionCount) {
-        alert('You got ' + points + ' points!')
         endRound()
         return
     }else{
@@ -84,7 +79,6 @@ function pressFalse() {
 function startQuiz() {
     document.getElementById("playButton").style.display = "none";
     document.getElementById("quiz").style.display = "block"
-    console.log("startQuiz")
     play()
 }
 
@@ -108,3 +102,5 @@ function toggleTrueFalse() {
 function reloadPage() {
     location.reload();
 }
+
+
