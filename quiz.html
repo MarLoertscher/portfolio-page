@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Quiz Time</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/quiz.js"></script>
     <script type="text/javascript" src="js/general.js"></script>
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<header id="navbarContainer"></header>
+<header class="navbarContainer" id="navbarContainer"></header>
 
 <body>
     <div>
@@ -56,12 +58,20 @@
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
-            </select><br><br>
+            </select><br>
 
-            <button class="button-40" id="submit" type="submit">Start Quiz</button>
+            <ul class="instructions">
+                <li class="instructions">First choose your settings</li>
+                <li class="instructions">Then Submit those settings</li>
+                <li class="instructions">Finally start the game by pressing "Play"</li>
+            </ul>
+
+            <button class="button-40" id="submit" type="submit">Submit Settings</button>
+            
         </form>
         <script>
-            document.getElementById("quizForm").addEventListener("submit", function() {
+            document.getElementById("quizForm").addEventListener("submit", function(event) {
+                event.preventDefault();
                 document.getElementById("quizForm").style.display = "none"
             });
         </script>
@@ -69,13 +79,14 @@
 
         
         
-        <h2 id="congratulations"></h2>
+        <h3 id="congratulations"></h3>
         <div id="quiz">
             <p id ="counterbox"></p>
             <p id="questionbox"></p>
-
-            <button class="button-40" id="trueButton" style="display: none">True</button>
-            <button class="button-40" id="falseButton" style="display: none">False</button>
+            <div class="trueFalse">
+                <button class="button-40" id="trueButton" style="display: none">True</button>
+                <button class="button-40" id="falseButton" style="display: none">False</button>
+            </div>
             <script>
                 document.getElementById("trueButton").addEventListener("click", function(){
                     pressTrue();
@@ -88,7 +99,7 @@
             </script>
         </div>
 
-        <button class="button-40" id="playButton">Play</button>          
+        <button class="button-play" id="playButton">Play</button>          
         <script>
             document.getElementById("playButton").addEventListener("click", function(){
                 startQuiz();
