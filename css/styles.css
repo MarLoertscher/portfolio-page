@@ -275,6 +275,7 @@ h1 {
     background: none;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin: 10px;
     margin-top: 20px;
 }
