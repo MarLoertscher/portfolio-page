@@ -284,6 +284,12 @@ h1 {
 }
 
 
+.quiz-box {
+    width: 60%;
+    margin: auto;
+}
+
+
 .nav-list {
     list-style: none;
     padding: 0;
